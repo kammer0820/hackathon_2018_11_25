@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link th:href="@{/css/app.css}" rel="stylesheet" />
+</head>
+<body>
+
+<h1 th:text="${message}"></h1>
+
+<section>
+    <h1>sssSample: 1</h1>
+    <ul id="photosBlock"></ul>
+</section>
+
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script src="jquery.akFlickr.js"></script>
+
+<script>
+
+    $(function(){
+        var $items1 = $('#photosBlock');
+        $items1.akFlickr({
+            api_key : '38cf568edf8432669403c272dcd1dca5',
+            count: 30, //デフォルト 20枚
+            size: 'large_square', //75x75
+            searchOptions: {
+                user_id : '150901924@N02',
+                sort: 'date-taken-desc' //撮影日時の新しい順
+            },
+            tag: 'li'
+        });
+    })
+</script>
+
+</body>
+
+
+
+</html>

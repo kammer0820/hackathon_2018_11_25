@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=340">
+    <title> Flickrで画像検索してみる </title>
+    <script src="/js/flickr_rest.js"></script>
+    <script src="/js/flickrsearch.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/app.css">
+</head>
+
+<body>
+
+    <center><h1>画像連想クイズ</h1></center>
+
+    <div id="intro" class="attribution">
+        <center>好きな言葉を入れて検索してみてください </center>
+    </div>
+    <div id="searchPanel">
+        <center> <input type="text" id="searchBox" />
+        <button class="square_btn" id="searchButton">検索</button> </center>
+    </div>
+
+
+
+    <form>
+        <center><input class="square_btn" id = "temp2"type="button" value="出題" onclick="hyoji1(1)"></center>
+        <center> <input class="square_btn" id = "temp" type="button" value="解答を表示する" onclick="hyoji1(0)" style="display:none;" ></center>
+
+    </form>
+
+    <div class="attribution" id = "endmessage" style="display:none;">
+        Guess the answer
+    </div>
+
+    <div id="answerPanel" style="display:none;">
+        <center> <input type="text" id="answerBox" /> </center>
+        <center> <input class="square_btn" type="button" value="CHECK!!" onclick="hyoji2()"> </center>
+    </div>
+
+    <script>
+
+        function hyoji1(num)
+        {
+            if (num == 0)
+            {
+                document.getElementById("searchPanel").style.display="block";
+                document.getElementById("intro").style.display="block";
+                document.getElementById("temp2").style.display="block";
+                document.getElementById("output").style.display="none";
+                document.getElementById("answerBox").value = "";
+                document.getElementById("answerPanel").style.display="none";
+                document.getElementById("temp").style.display="none";
+
+            }
+            else
+            {
+                document.getElementById("searchPanel").style.display="none";
+                document.getElementById("intro").style.display="none";
+                document.getElementById("answerPanel").style.display="block";
+                document.getElementById("temp").style.display="block";
+                document.getElementById("temp2").style.display="none";
+
+            }
+        }
+    </script>
+
+    <script>
+        function hyoji2()
+        {   var searching = document.getElementById("searchBox").value;
+            var answering = document.getElementById("answerBox").value;
+
+
+
+            if (searching == answering)
+            {
+                target = document.getElementById("output");
+                target.innerHTML = "正解です！！！おめでとうございます！！！！！";
+            }
+            else
+            {
+                target = document.getElementById("output");
+                target.innerHTML = "不正解です。やり直してください。";
+            }
+        }
+    </script>
+
+    <center><div id="output"></div></center>
+
+    <center><div id="display"><center></center></div></center>
+
+
+
+</body>
+</html>

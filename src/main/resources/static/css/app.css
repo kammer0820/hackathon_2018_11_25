@@ -1,0 +1,49 @@
+body {
+    background-color: #CEECF5;
+}
+.square_btn {
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    color: #FFF;
+    background: #00bcd4;
+    transition: .4s;
+    width:100px;
+    height:50px;
+}
+
+.square_btn:hover {
+    background: #1ec7bb;
+}
+
+h1 {
+    text-align: center;
+}
+
+h1 span{
+    position: relative;
+    display: inline-block;
+    padding-bottom:0.5em;
+    border-bottom: 1px solid black;
+}
+
+h1 span::before,
+h1 span::after {
+    position: absolute;
+    top: 100%;
+    left:50%;
+    transform:translateX(-50%);
+    content: '';
+    border: 10px solid transparent;
+}
+
+h1 span::before {
+    border-top: 10px solid black;
+}
+
+h1 span::after {
+    margin-top: -1px;
+    border-top: 10px solid white;
+}
